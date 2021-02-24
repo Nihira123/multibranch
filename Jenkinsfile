@@ -21,7 +21,7 @@ pipeline {
         }
         }
         stage ('copy to other node') {
-            agent {label : 'ltelog'}
+            agent {label  'ltelog'}
             steps {                
                 unstash name: 'warfile'
             }
