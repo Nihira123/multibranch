@@ -34,3 +34,4 @@ triggering poll scm
 triggering poll sc -2
 checking poll scm through pipeline
 checking poll scm
+checking pollscm in multibranchnew pipeline
