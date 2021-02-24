@@ -1,10 +1,10 @@
 pipeline {
-    agent { label 'ltecomm'}
-    triggers { pollSCM('* * * * *') }
+    agent { label 'master'}
+    
     stages {
         stage ('scm') {
             steps {
-                git branch : 'developer' , url : 'https://github.com/pramesh123/multibranch.git'
+                git branch : 'release' , url : 'https://github.com/pramesh123/multibranch.git'
             }
 
         }
