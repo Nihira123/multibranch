@@ -1,10 +1,10 @@
 pipeline {
-    agent { label 'ltecomm'}
+    agent { label 'ltelog'}
     triggers { pollSCM('* * * * *') }
     stages {
         stage ('scm') {
             steps {
-                git branch : 'developer' , url : 'https://github.com/pramesh123/multibranch.git'
+                git branch : 'qa' , url : 'https://github.com/pramesh123/multibranch.git'
             }
 
         }
@@ -21,7 +21,7 @@ pipeline {
         }
         }
         stage ('copy to other node') {
-            agent {label : 'ltelog'}
+            agent {label : 'ltecomm'}
             steps {                
                 unstash name: 'warfile'
             }
