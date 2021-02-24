@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('scm') {
             steps {
-                git branch : 'developer' , url : 'https://github.com/pramesh123/mul0gol.git'
+                git branch : 'developer' , url : 'https://github.com/pramesh123/multibranch.git'
             }
 
         }
@@ -19,6 +19,12 @@ pipeline {
             archiveArtifacts artifacts: 'gameoflife-web/target/gameoflife.war', fingerprint: true
             stash name: 'warfile', includes: 'gameoflife-web/target/*.war'
         }
+        }
+        stage ('copy to other node') {
+            agent {label : 'ltelog'}
+            steps {                
+                unstash name: 'warfile'
+            }
         }
         
         
